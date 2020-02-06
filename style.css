@@ -13,6 +13,10 @@ textarea{
   padding: 10px;
 }
 
+#save {
+  color: #77dd77;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -21,19 +25,37 @@ textarea{
   border-bottom: 10px solid black;
 }
 
+.container {
+  width: auto;
+  text-align: center;
+  padding: 20px;
+  
+}
+
 .description{
   white-space: pre-wrap;
+  border: solid black 1px;
+  width: 600px;
+  padding: 10px;
+  text-align: left;
 }
 
 .time-block{
   text-align: center;
+  line-height: 80px;
   border-radius: 15px;
+  background-color: indianred;
+  width: 100px;
+
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: row;
 }
 
 .hour {
@@ -63,6 +85,8 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  line-height: 80px;
+  width: 100px;
 }
 
 .saveBtn i:hover {
