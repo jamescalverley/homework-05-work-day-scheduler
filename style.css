@@ -25,6 +25,10 @@ textarea{
   border-bottom: 10px solid black;
 }
 
+
+
+/* add flex to container and use stack to display */
+
 .container {
   width: auto;
   text-align: center;
@@ -33,19 +37,25 @@ textarea{
 }
 
 .description{
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
   border: solid black 1px;
   width: 600px;
-  padding: 10px;
+  padding: 2px;
   text-align: left;
+}
+
+.eventDescription{ 
+  width: 500px;
+  height: 40px;
+  margin: 0px;
 }
 
 .time-block{
   text-align: center;
-  line-height: 80px;
+  line-height: 40px;
   border-radius: 15px;
   background-color: indianred;
-  width: 100px;
+  width: 150px;
 
 }
 
@@ -53,7 +63,7 @@ textarea{
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;
-  margin-bottom: 3px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
 }
@@ -79,14 +89,20 @@ textarea{
   color: white;
 }
 
+.save {
+  border: black solid 1px;
+  padding: 2px;
+
+}
+
 .saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
-  line-height: 80px;
-  width: 100px;
+  height: 20px;
+  width: 50px;
+  background-color: green;
+  margin: 2px;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 16px;
 }
 
 .saveBtn i:hover {
