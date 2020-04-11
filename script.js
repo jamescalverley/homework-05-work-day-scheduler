@@ -14,7 +14,8 @@ $('#currentDay').append(currentTimeString);
 
 
 // events object
-let events = { hour9: "", hour10: "", hour11: "", hour12: "", hour13: "", hour14: "", hour15: "", hour16: "", hour17: ""};
+let events = ["",  "",  "",  "",  "",  "",  "",  "", ""]
+
 
 // parse from local storage
 // events = JSON.parse(localStorage.events);
@@ -22,17 +23,34 @@ let events = { hour9: "", hour10: "", hour11: "", hour12: "", hour13: "", hour14
 // use code below for if there is nothing in local storage
 // events = localStorage.events ? JSON.parse(localStorage.events) : { hour9: "", hour10: "", hour11: "", hour12: "", hour13: "", hour14: "", hour15: "", hour16: "", hour17: ""};
 
+
 //adding event description to array
-function addEvent(){
-    let eventDescription = (document.getElementById('hour9').value);
-    console.log(`text field: ${eventDescription}`);
+
+// function addEvent(){
+//     let eventDescription = (document.getElementById('hour9').value);
+//     console.log("button 9 >>> clicked");
+//     console.log(`text field: ${eventDescription}`);
     
-    console.log("button 9 >>> clicked");
-    events.hour9 = `${eventDescription}`;
-    console.log(`${events.hour9}`);
+//     events.hour9 = `${eventDescription}`;
+    
+// }
+
+function addEvents(){
+  events[0] = document.getElementById('hour9').value;
+  events[1] = document.getElementById('hour10').value;
+  events[2] = document.getElementById('hour11').value;
 }
 
-document.getElementById('save9').addEventListener('click', addEvent);
+document.getElementById("save9").addEventListener('click', addEvents);
+
+// var saveButtonsDiv = document.querySelector(".save");
+// var saveButtons = document.saveButtons.querySelectorAll([".saveBtn"]);
+
+// saveButtons.addEventListener('click', addEvents);
+
+
+
+
 
 // save to local storage
 localStorage.events = JSON.stringify(events);
@@ -48,7 +66,6 @@ function compareTime(){
     let blockTime = (document.getElementById('block9').value); 
     console.log(`${blockTime}`)
 }
-
 
 
 // assign a time value to each row >>> create a function that compares the current time to the row time >>> based on the difference in time, set the css styling accordingly (maybe give each row an ID?? or make each row an LI in UL container or OL???)

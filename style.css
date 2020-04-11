@@ -63,7 +63,7 @@ textarea{
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   display: flex;
   flex-direction: row;
 }
@@ -98,7 +98,7 @@ textarea{
 .saveBtn {
   height: 20px;
   width: 50px;
-  background-color: green;
+  background-color: grey;
   margin: 2px;
   margin-left: 10px;
   text-align: center;
