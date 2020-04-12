@@ -3,64 +3,102 @@ const currentTime = moment().format("MM/DD/YYYY h:mmA");
 console.log(currentTime);
 console.log(`toString() => ${currentTime.toString()}`);
 
-var currentTimeString = (`${currentTime.toString()}`);
+let currentTimeString = (`${currentTime.toString()}`);
 console.log(`The current time is ${currentTimeString}`);
 
 
 // set current time
 // $('#currentDay').html(moment(now).format())
 
-$('#currentDay').append(currentTimeString);
+$(document).ready(()=> {
+  $('#currentDay').append(currentTimeString);
+  parseLocalStorage();
+  schedule = JSON.parse(localStorage.schedule)
+});
+ 
+let schedule = {
+  nine: "",
+  ten: "",
+  eleven: "", 
+  twelve: "", 
+  thirteen: "", 
+  fourteen: "",
+  fifthteen: "",
+  sixteen: "", 
+  seventeen: "",
+  eighteen: ""
+};
 
+$('#save9').click( function(){
+  const saveValue = $('#hour9').val();
+  schedule.nine = saveValue;
+  saveLocalStorage();
+});
 
-// events object
-let events = ["",  "",  "",  "",  "",  "",  "",  "", ""]
+$('#save10').click( function(){
+  const saveValue = $('#hour10').val();
+  schedule.ten = saveValue;
+  saveLocalStorage();
+});
 
+$('#save11').click( function(){
+  const saveValue = $('#hour11').val();
+  schedule.eleven = saveValue;
+  saveLocalStorage();
+});
 
-// parse from local storage
-// events = JSON.parse(localStorage.events);
+$('#save12').click( function(){
+  const saveValue = $('#hour12').val();
+  schedule.twelve = saveValue;
+  saveLocalStorage();
+});
 
-// use code below for if there is nothing in local storage
-// events = localStorage.events ? JSON.parse(localStorage.events) : { hour9: "", hour10: "", hour11: "", hour12: "", hour13: "", hour14: "", hour15: "", hour16: "", hour17: ""};
+$('#save13').click( function(){
+  const saveValue = $('#hour13').val();
+  schedule.thirteen = saveValue;
+  saveLocalStorage();
+});
 
+$('#save14').click( function(){
+  const saveValue = $('#hour14').val();
+  schedule.fourteen = saveValue;
+  saveLocalStorage();
+});
 
-//adding event description to array
+$('#save15').click( function(){
+  const saveValue = $('#hour15').val();
+  schedule.fifthteen = saveValue;
+  saveLocalStorage();
+});
 
-// function addEvent(){
-//     let eventDescription = (document.getElementById('hour9').value);
-//     console.log("button 9 >>> clicked");
-//     console.log(`text field: ${eventDescription}`);
-    
-//     events.hour9 = `${eventDescription}`;
-    
-// }
+$('#save16').click( function(){
+  const saveValue = $('#hour16').val();
+  schedule.sixteen = saveValue;
+  saveLocalStorage();
+});
 
-function addEvents(){
-  events[0] = document.getElementById('hour9').value;
-  events[1] = document.getElementById('hour10').value;
-  events[2] = document.getElementById('hour11').value;
-}
+$('#save17').click( function(){
+  const saveValue = $('#hour17').val();
+  schedule.seventeen = saveValue;
+  saveLocalStorage();
+});
 
-document.getElementById("save9").addEventListener('click', addEvents);
+function saveLocalStorage(){
+  localStorage.schedule = JSON.stringify(schedule)
+};
 
-// var saveButtonsDiv = document.querySelector(".save");
-// var saveButtons = document.saveButtons.querySelectorAll([".saveBtn"]);
-
-// saveButtons.addEventListener('click', addEvents);
-
-
-
-
-
-// save to local storage
-localStorage.events = JSON.stringify(events);
-
-
-let testArray = ["meeting", "interview", "work on project"];
-localStorage.testArray = JSON.stringify(testArray);
-
-
-// change block color based on time
+function parseLocalStorage(){
+  let schedule = JSON.parse(localStorage.schedule)
+  $('#hour9').val(schedule.nine)
+  $('#hour10').val(schedule.ten);
+  $('#hour11').val(schedule.eleven);
+  $('#hour12').val(schedule.twelve);
+  $('#hour13').val(schedule.thirteen);
+  $('#hour14').val(schedule.fourteen);
+  $('#hour15').val(schedule.fifthteen);
+  $('#hour16').val(schedule.sixteen);
+  $('#hour17').val(schedule.seventeen);
+};
 
 function compareTime(){
     let blockTime = (document.getElementById('block9').value); 
