@@ -1,15 +1,3 @@
-// introduce time
-const currentTime = moment().format("MM/DD/YYYY h:mmA");
-console.log(currentTime);
-console.log(`toString() => ${currentTime.toString()}`);
-
-let currentTimeString = (`${currentTime.toString()}`);
-console.log(`The current time is ${currentTimeString}`);
-
-
-// set current time
-// $('#currentDay').html(moment(now).format())
-
 $(document).ready(()=> {
   $('#currentDay').append(currentTimeString);
   parseLocalStorage();
@@ -17,69 +5,69 @@ $(document).ready(()=> {
 });
  
 let schedule = {
-  nine: "",
-  ten: "",
-  eleven: "", 
-  twelve: "", 
-  thirteen: "", 
-  fourteen: "",
-  fifthteen: "",
-  sixteen: "", 
-  seventeen: "",
-  eighteen: ""
+  t9: "",
+  t10: "",
+  t11: "", 
+  t12: "", 
+  t13: "", 
+  t14: "",
+  t15: "",
+  t16: "", 
+  t17: "",
+  t18: ""
 };
 
 $('#save9').click( function(){
   const saveValue = $('#hour9').val();
-  schedule.nine = saveValue;
+  schedule.t9 = saveValue;
   saveLocalStorage();
 });
 
 $('#save10').click( function(){
   const saveValue = $('#hour10').val();
-  schedule.ten = saveValue;
+  schedule.t10 = saveValue;
   saveLocalStorage();
 });
 
 $('#save11').click( function(){
   const saveValue = $('#hour11').val();
-  schedule.eleven = saveValue;
+  schedule.t11 = saveValue;
   saveLocalStorage();
 });
 
 $('#save12').click( function(){
   const saveValue = $('#hour12').val();
-  schedule.twelve = saveValue;
+  schedule.t12 = saveValue;
   saveLocalStorage();
 });
 
 $('#save13').click( function(){
   const saveValue = $('#hour13').val();
-  schedule.thirteen = saveValue;
+  schedule.t13 = saveValue;
   saveLocalStorage();
 });
 
 $('#save14').click( function(){
   const saveValue = $('#hour14').val();
-  schedule.fourteen = saveValue;
+  schedule.t14 = saveValue;
   saveLocalStorage();
 });
 
 $('#save15').click( function(){
   const saveValue = $('#hour15').val();
-  schedule.fifthteen = saveValue;
+  schedule.t15 = saveValue;
   saveLocalStorage();
 });
 
 $('#save16').click( function(){
   const saveValue = $('#hour16').val();
-  schedule.sixteen = saveValue;
+  schedule.t16 = saveValue;
   saveLocalStorage();
 });
 
 $('#save17').click( function(){
   const saveValue = $('#hour17').val();
-  schedule.seventeen = saveValue;
+  schedule.t17 = saveValue;
   saveLocalStorage();
 });
 
@@ -89,38 +77,50 @@ function saveLocalStorage(){
 
 function parseLocalStorage(){
   let schedule = JSON.parse(localStorage.schedule)
-  $('#hour9').val(schedule.nine)
-  $('#hour10').val(schedule.ten);
-  $('#hour11').val(schedule.eleven);
-  $('#hour12').val(schedule.twelve);
-  $('#hour13').val(schedule.thirteen);
-  $('#hour14').val(schedule.fourteen);
-  $('#hour15').val(schedule.fifthteen);
-  $('#hour16').val(schedule.sixteen);
-  $('#hour17').val(schedule.seventeen);
+  $('#hour9').val(schedule.t9)
+  $('#hour10').val(schedule.t10);
+  $('#hour11').val(schedule.t11);
+  $('#hour12').val(schedule.t12);
+  $('#hour13').val(schedule.t13);
+  $('#hour14').val(schedule.t14);
+  $('#hour15').val(schedule.t15);
+  $('#hour16').val(schedule.t16);
+  $('#hour17').val(schedule.t17);
 };
 
-function compareTime(){
-    let blockTime = (document.getElementById('block9').value); 
-    console.log(`${blockTime}`)
-}
+function setClass( hour, setClass ){
+  $(`#content${hour}`).addClass(`${setClass}`)
+  $(`#btn${hour}`).addClass(`${setClass}`)
+};
+
+const currentTime = moment().format("MM/DD/YYYY H:mm");
+let currentTimeString = currentTime.toString();
+
+console.log(currentTime);
+console.log(`The current time is ${currentTimeString}`);
+
+//const currentHour = moment().format('H')
+const currentHour = 13;
+const compareHours = [9,10,11,12,13,14,15,16,17]
+
+function setRowColor(){
+  compareHours.forEach( (hour) => {
+    if( hour == currentHour ){
+      //console.log( `Hour: ${hour} is equal to testCurrent: ${testCurrent}`)
+      setClass( hour, "present" );
+    } if( hour < currentHour ){
+      setClass( hour, "past");
+    } if( hour > currentHour ){
+      setClass( hour, "future");
+    }
+  }); 
+};
+
+setRowColor();
 
 
-// assign a time value to each row >>> create a function that compares the current time to the row time >>> based on the difference in time, set the css styling accordingly (maybe give each row an ID?? or make each row an LI in UL container or OL???)
 
-// creat an ID for each row (based on time) then add a click function on this.saveBtn which will save this.eventDescription in local storage
 
-// quick way: when saveBtn is clicked >>> save to local storage >>> parse back into the value of the input field **** will allow the event to appear and then be editable
-
-// just use hours of time not minutes. if current hour = hour of div >>> div == present 
-
-// forget putting an input field inside of div >>> just use forms on their own
-
-// add event key for enter >>> save to local storage
-
-// create an array of the description of each hour. pass this array to local storage 
-
-// need to add event description to array first, then push to local storage. Parse in whole array and replace everything. Look at movie exercise
 
 
     

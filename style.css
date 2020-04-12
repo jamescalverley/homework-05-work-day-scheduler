@@ -54,7 +54,8 @@ textarea{
   text-align: center;
   line-height: 40px;
   border-radius: 15px;
-  background-color: indianred;
+  background-color: grey;
+  font-size: 24px;
   width: 150px;
 
 }
