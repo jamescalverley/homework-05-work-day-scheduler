@@ -93,7 +93,7 @@ function setClass( hour, setClass ){
   $(`#btn${hour}`).addClass(`${setClass}`)
 };
 
-const currentTime = moment().format("MM/DD/YYYY H:mm");
+const currentTime = moment().format("MM/DD/YYYY H:mm:ss");
 let currentTimeString = currentTime.toString();
 
 console.log(currentTime);
