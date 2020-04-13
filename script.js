@@ -1,5 +1,5 @@
 $(document).ready(()=> {
-  $('#currentDay').append(currentTimeString);
+  updateTime();
   parseLocalStorage();
   schedule = JSON.parse(localStorage.schedule)
 });
@@ -93,8 +93,17 @@ function setClass( hour, setClass ){
   $(`#btn${hour}`).addClass(`${setClass}`)
 };
 
-const currentTime = moment().format("MM/DD/YYYY H:mm:ss");
-let currentTimeString = currentTime.toString();
+
+function updateTime(){
+  const currentTime = moment().format("MM/DD/YYYY H:mm:ss");
+  let currentTimeString = currentTime.toString();
+  $('#currentTime').html(currentTimeString);
+};
+
+setInterval( () => {
+  updateTime();
+}, 1000)
+
 
 console.log(currentTime);
 console.log(`The current time is ${currentTimeString}`);
