@@ -1,5 +1,6 @@
 $(document).ready(()=> {
   updateTime();
+  setRowColor();
   parseLocalStorage();
   schedule = JSON.parse(localStorage.schedule)
 });
@@ -104,10 +105,6 @@ setInterval( () => {
   updateTime();
 }, 1000)
 
-
-console.log(currentTime);
-console.log(`The current time is ${currentTimeString}`);
-
 const currentHour = moment().format('H')
 //const currentHour = 13;
 const compareHours = [9,10,11,12,13,14,15,16,17]
@@ -125,7 +122,10 @@ function setRowColor(){
   }); 
 };
 
-setRowColor();
+setInterval(()=> {
+  setRowColor();
+}, 60000)
+
 
 
 
